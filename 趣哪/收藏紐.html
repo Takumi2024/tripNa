@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* styles.css */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .heart-container {
+            text-align: center;
+        }
+
+        .heart {
+            font-size: 50px;
+            color: #ccc;
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .heart.filled {
+            color: red;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="heart-container">
+        <button id="heartButton" class="heart">&#9825;</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const heartButton = document.getElementById('heartButton');
+            // console.log(heartButton);
+
+            // 1. classList 可以取得(get)該元素的”class” 
+            // ex:<button class="btn btn-big">好棒棒按鈕</button>
+            //const btn=document.querySelector('.btn')
+            //console.log(btn.classList);  
+            //DOMTokenList(2) ['btn', 'btn-big'] 以陣列方式呈現
+
+            // 2.用classList的方法來新增、刪除class以及查找class
+            // add( )、remove( )、toggle( )、contain( )
+            // const tag = document.querySelector('tag')
+            // tag.classList.add('red')    //增加"red" class
+            // tag.classList.remove('red') //移除"red" class
+            // tag.classList.toggle('red') //自動偵測是否帶有該class並做切換"red" class
+            // tag.classList.contains('red')//是否有包含"red" class 若有回傳"true" 反之，false。
+
+            heartButton.addEventListener('click', function () {
+                if (heartButton.classList.contains('filled')) {
+                    heartButton.classList.remove('filled');
+                    heartButton.innerHTML = '&#9825;'; // 空心心形
+                } else {
+                    heartButton.classList.add('filled');
+                    heartButton.innerHTML = '&#9829;'; // 實心心形
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
